@@ -1,0 +1,109 @@
+.search-form{
+  margin-left: 15%;
+  display: flex;
+}
+.icon-play{
+  position: absolute;
+  font-size: 100px;
+
+}
+.detalle-video{
+  margin-left: 15%;
+  width: auto;
+  color: white;
+  display: flex;
+
+}
+.portada-video{
+  float: left;
+  width: 300px;
+  height: 300px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.description-video{
+  float: left;
+  width: 600px;
+  height: 300px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.img-description-video{
+  height: 100%;
+  width: 100%;
+  opacity: 0.75;
+
+}
+.list-item{
+position: absolute;
+  padding: 5%;
+}
+.list-title{
+  font-family: Quicksand;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 27px;
+  color: #ffffff;
+}
+.list-inline{
+  display: flex;
+  padding: 5%;
+}
+.list-artist-name{
+  font-family: Quicksand;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 17px;
+  color: #ffffff;
+
+}
+.list-nro-fans{
+  font-family: Quicksand;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 17px;
+  color: #662323;
+}
+.button-play{
+  height: 30px;
+  width: 150px;
+  border-radius: 100px;
+  background: #E86060;
+  border: 1px;
+  font-family: Quicksand;
+  font-style: normal;
+  color: white;
+}
+.button-cancelar{
+  height: 30px;
+  width: 150px;
+  border-radius: 100px;
+  background: transparent;
+  border: 1px solid #EB5757;
+  font-family: Quicksand;
+  font-style: normal;
+  color: white;
+}
+.div-item{
+  display: flex;
+  padding: 5%;
+
+}
+.list-inline > span + span {
+  padding: 0 5px;
+  margin-left: 10px;
+}
+.div-item > button + button {
+  padding: 0 5px;
+  margin-left: 10px;
+}
+.app-playlist{
+}
+

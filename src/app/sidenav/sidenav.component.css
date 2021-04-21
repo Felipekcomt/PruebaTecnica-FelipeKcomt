@@ -1,0 +1,35 @@
+.example-container {
+  width: 25%;
+  height: 100%;
+  background: #662323;
+}
+.img{
+  width: 250px;
+  height: 59px;
+  margin-left: 10%;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+.list-item{
+  font-family: Quicksand;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  margin-left: 15%;
+  margin-top: 5%;
+  color: #ffffff;
+  cursor: pointer;
+}
+.list-item:hover{
+  color: #E86060;
+}
+.title{
+  font-family: Quicksand;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  color: #ffffff;
+  margin-left: 15%;
+
+}
+

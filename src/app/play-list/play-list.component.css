@@ -1,0 +1,37 @@
+
+.p-title{
+  font-family: Quicksand;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 17px;
+}
+.p-name{
+  font-family: Quicksand;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 15px;
+}
+.icon-play{
+  position: absolute;
+  font-size: 100px;
+  color: white;
+}
+.img-play-list{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.h1-resultados{
+  font-family: Quicksand;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 27px;
+  color: #E86060;
+}
+.audio-player{
+  color: #EB5757;
+}
