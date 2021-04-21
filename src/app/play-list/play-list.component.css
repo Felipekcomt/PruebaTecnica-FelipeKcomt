@@ -30,8 +30,56 @@
   font-weight: bold;
   font-size: 22px;
   line-height: 27px;
-  color: #E86060;
+  color: #e86060;
 }
 .audio-player{
   color: #EB5757;
+}
+.footer{
+  bottom: 0;
+  background-color: #EB5757;
+  display: flex;
+  align-items: center;
+  height: 70px;
+  width: 100%;
+
+}
+.input-volume{
+  position: absolute;
+  right: 6px;
+}
+.footer-buttom{
+  display: inline-block;
+  margin:0 auto;
+  width:200px;
+}
+.button-footer{
+  background-color: #FF7676;
+  border-radius: 100px;
+  width: 50px;
+  height: 50px;
+  color: white;
+  border: 1px;
+
+}
+.fas fa-play{
+  color: #ffffff;
+}
+.button-footer2{
+  background: transparent;
+  border: 1px solid #EB5757;
+}
+.img-footer{
+  display: block;
+  float:left;
+  height: 100%;
+  object-fit: cover;
+}
+.name-song{
+  align-items: center;
+}
+.div-name-song{
+  float: left;
+  margin-left: 5px;
+
 }

@@ -10,46 +10,72 @@ import {Track} from 'ngx-audio-player';
   styleUrls: ['./play-list.component.css']
 })
 export class PlayListComponent implements OnInit {
+  i = 0;
   album = [];
-  id: any;
+  getAlbum: any = {};
+  initial = 302127;
   temp: any;
   temp2: Track[] = [];
   @Input() search: any;
   @Output() changed = new EventEmitter<any>();
   audioObj = new Audio();
-  constructor(private albumService: AlbumService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  title: string;
+  artist: string;
+  nameAlbum: string;
+
+
+  constructor(private albumService: AlbumService, private router: Router, private activatedRoute: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
   }
-  FindId(id: any): void{
+
+  FindId(id: any): void {
+    this.initial = id;
     this.temp2 = [];
-    this.changed.emit(id);
-    this.albumService.getAlbumByIdTrack(id).subscribe(album => {
+    this.changed.emit(this.initial);
+    this.albumService.getAlbumByIdTrack(this.initial).subscribe(album => {
 
       this.album = album.data;
-      console.log(this.album[1]);
       this.temp = this.album[1];
       this.album.forEach((album2) => {
         this.temp2.push({title: album2.title, link: album2.preview});
+        this.artist = album2.artist.name;
       });
-      this.audioObj.src = this.temp2[0].link;
+      this.audioObj.src = this.temp2[this.i].link;
+      this.title = this.temp2[this.i].title;
       this.audioObj.load();
       this.audioObj.play();
-      console.log(this.album);
-      console.log(this.temp2);
+    });
+    this.albumService.getAlbumById(this.initial).subscribe(getAlbum => {
+      this.getAlbum = getAlbum;
+      console.log(this.getAlbum);
     });
   }
-  play(){
-  this.audioObj.play();
+
+  play() {
+    this.audioObj.play();
   }
-  pause(){
-  this.audioObj.pause();
+
+  next() {
+    this.audioObj.src = this.temp2[this.i + 1].link;
+    this.audioObj.load();
+    this.audioObj.play();
   }
-  stop(){
-  this.audioObj.pause();
-  this.audioObj.currentTime = 0;
+
+  back() {
+    if (this.i <= 0) {
+      this.audioObj.src = this.temp2[this.i].link;
+      this.audioObj.load();
+      this.audioObj.play();
+    } else {
+      this.audioObj.src = this.temp2[this.i - 1].link;
+    }
+    this.audioObj.load();
+    this.audioObj.play();
   }
+
   setVolume(ev) {
-  this.audioObj.volume = ev.target.value;
+    this.audioObj.volume = ev.target.value;
   }
 }

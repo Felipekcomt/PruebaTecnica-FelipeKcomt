@@ -19,21 +19,34 @@ export class HomeComponent implements OnInit {
   search: any;
   form: FormGroup;
   id: any;
-  constructor(private artistService: ArtistService, private albumService: AlbumService , private router: Router, private activatedRoute: ActivatedRoute, private searchService: SearchService) {
+  albumTemp: any;
+
+  constructor(private artistService: ArtistService, private albumService: AlbumService, private router: Router, private activatedRoute: ActivatedRoute, private searchService: SearchService) {
   }
+
   ngOnInit(): void {
-    this.artistService.getArtistById(27).subscribe(artist =>
-     {this.artist = artist;});
+    this.artistService.getArtistById(27).subscribe(artist => {
+      this.artist = artist;
+    });
     this.form = new FormGroup({find: new FormControl()});
-    this.albumService.getAlbumById(192713382).subscribe(album =>
-      {this.album = album; });
+    this.albumService.getAlbumById(302127).subscribe(album => {
+      this.album = album;
+      console.log(this.album);
+    });
+    this.searchService.getSearchAlbumbyTitle('eminem').subscribe(search1 => {
+      this.search = search1;
+      console.log(this.search, 'eminem');
+    });
   }
+
   buscar(): void {
-    this.searchService.getSearchAlbumbyTitle(this.form.get('find').value).subscribe( search =>
-    {this.search = search;});
+    this.searchService.getSearchAlbumbyTitle(this.form.get('find').value).subscribe(search => {
+      this.search = search;
+    });
   }
-  sendId(id: any): void{
-  this.id = id;
+
+  sendId(id: any): void {
+    this.id = id;
   }
 
 }

@@ -1,3 +1,4 @@
+
 <div class="main-div">
   <h1 style="margin-left: 2%; margin-top: 2%" class="h1-resultados">Resultados</h1>
   <mat-grid-list cols="5" rowHeight="350">
@@ -18,12 +19,22 @@
   </mat-grid-list>
 </div>
 <footer>
-  <div>
-  <button (click)="play()" >Play</button>
-  <button (click)="pause()">Cancelar</button>
-  <button (click)="stop()">Stop</button>
+  <div class="footer" style="display: flex">
+    <div class="img-footer">
+      <img style="height: 100%" [src]="getAlbum.cover_small">
+    </div>
+    <div class="div-name-song">
+      <span class="name-song">{{this.title}}</span>
+      <span class="name-song">{{this.artist}}</span>
+    </div>
+    <div class="footer-buttom">
+      <button class="button-footer2" (click)="back()"><i class="fas fa-step-backward"></i></button>
+      <button class="button-footer" (click)="play()"><i class="fas fa-play"></i></button>
+      <button  class="button-footer2" (click)="next()"><i class="fas fa-step-forward"></i></button>
+    </div>
+    <div class="input-volume" style="display: flex">
+      <input type="range" min="0" max="1" step="0.01" value="0.1" (input)="setVolume($event)">
+    </div>
   </div>
-  <div>
-    <input type="range" min="0" max="1" step="0.01" value="0.5" (input)="setVolume($event)">
-  </div>
+
 </footer>
