@@ -22,6 +22,8 @@ export class PlayListComponent implements OnInit {
   title: string;
   artist: string;
   nameAlbum: string;
+  reproduciendo: boolean = false;
+  sound: boolean = true;
 
 
   constructor(private albumService: AlbumService, private router: Router, private activatedRoute: ActivatedRoute) {
@@ -31,6 +33,7 @@ export class PlayListComponent implements OnInit {
   }
 
   FindId(id: any): void {
+    this.reproduciendo = true;
     this.initial = id;
     this.temp2 = [];
     this.changed.emit(this.initial);
@@ -55,6 +58,13 @@ export class PlayListComponent implements OnInit {
 
   play() {
     this.audioObj.play();
+    if (this.reproduciendo) {
+      this.reproduciendo = false;
+      this.audioObj.pause();
+    } else {
+      this.reproduciendo = true;
+    }
+
   }
 
   next() {
@@ -77,5 +87,14 @@ export class PlayListComponent implements OnInit {
 
   setVolume(ev) {
     this.audioObj.volume = ev.target.value;
+  }
+  pause() {
+    if (this.sound){
+      this.sound = false;
+      this.audioObj.volume = 0;
+    }else {
+      this.sound = true;
+      this.audioObj.volume = 0.5;
+    }
   }
 }

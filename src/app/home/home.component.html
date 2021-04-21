@@ -2,27 +2,27 @@
 <div class="search-form">
   <form [formGroup]="form" (ngSubmit)="buscar()" class="example-form">
     <mat-form-field class="example-full-width" style="width: 500px">
-      <input matInput type="search" placeholder="Search" formControlName="find">
+      <input matInput type="search" placeholder="Buscar" formControlName="find">
       <i class="fas fa-search" style="margin-left: 95%"></i>
     </mat-form-field>
   </form>
 </div>
 <div class="detalle-video">
   <div class="portada-video">
-    <img style="width: 100%; height: 100%" [src]="album.cover_medium">
+    <img style="width: 100%; height: 100%" [src]="album[0].cover_medium">
       <div class="icon-play">
         <i class="fas fa-play"></i>
       </div>
   </div>
   <div class="description-video">
-    <img class="img-description-video" [src]="album.artist.picture_big">
+    <img class="img-description-video" [src]="album[0].artist.picture_big">
     <div class="list-item">
       <div class="div-item">
-        <span class="list-title">{{album.title}}</span>
+        <span class="list-title">{{album[0].title}}</span>
       </div>
       <div class="list-inline">
-        <span class="list-artist-name">{{album.artist.name}}</span>
-        <span class="list-nro-fans">{{album.fans}} Seguidores</span>
+        <span class="list-artist-name">{{album[0].artist.name}}</span>
+        <span class="list-nro-fans">{{nbfans.nb_fan}} Seguidores</span>
       </div>
       <div class="div-item">
         <button class="button-play">Reproducir</button>

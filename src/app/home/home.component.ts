@@ -19,7 +19,8 @@ export class HomeComponent implements OnInit {
   search: any;
   form: FormGroup;
   id: any;
-  albumTemp: any;
+  idTemp: any;
+  nbfans: any;
 
   constructor(private artistService: ArtistService, private albumService: AlbumService, private router: Router, private activatedRoute: ActivatedRoute, private searchService: SearchService) {
   }
@@ -29,19 +30,31 @@ export class HomeComponent implements OnInit {
       this.artist = artist;
     });
     this.form = new FormGroup({find: new FormControl()});
-    this.albumService.getAlbumById(302127).subscribe(album => {
-      this.album = album;
-      console.log(this.album);
+    this.searchService.getSearchAlbumbyTitle('eminem').subscribe(album => {
+      this.album = album.data;
+      console.log(this.album, 'album1');
     });
     this.searchService.getSearchAlbumbyTitle('eminem').subscribe(search1 => {
       this.search = search1;
       console.log(this.search, 'eminem');
+    });
+    this.artistService.getArtistById(49918932).subscribe(nbfans => {
+      this.nbfans = nbfans;
+      console.log(this.nbfans.nb_fan, 'nbfans');
     });
   }
 
   buscar(): void {
     this.searchService.getSearchAlbumbyTitle(this.form.get('find').value).subscribe(search => {
       this.search = search;
+      this.searchService.getSearchAlbumbyTitle(this.form.get('find').value).subscribe(album => {
+        this.album = album.data;
+        this.idTemp = this.album[0].artist.id;
+      });
+      this.artistService.getArtistById(this.idTemp).subscribe(nbfans => {
+        this.nbfans = nbfans;
+        console.log(this.nbfans, 'nbfans');
+      });
     });
   }
 
