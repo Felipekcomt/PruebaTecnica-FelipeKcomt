@@ -4,7 +4,7 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class SearchService {
-  baseUrl = 'https://api.deezer.com/search/album?q=';
+  baseUrl = 'http://api.deezer.com/search/album?q=';
 
   constructor(private http: HttpClient) {
   }
